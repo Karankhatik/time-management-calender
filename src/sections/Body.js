@@ -1,9 +1,11 @@
 import React from 'react'
 import DateCheckBox from '../components/DateCheckBox';
 import WeekCard from '../components/WeekCard';
+import { CalenderContext } from '../context/CalenderContext';
+import { useContext } from 'react';
 
 const Body = () => {
-    const currentDate = new Date();
+    const { currentDate } = useContext(CalenderContext);
   const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
     return (

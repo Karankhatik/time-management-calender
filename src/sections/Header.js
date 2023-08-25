@@ -2,11 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import TimeZone from "../components/TimeZone";
+import  CalenderContext  from "../context/CalenderContext";
+import { useContext } from "react";
 
 const Header = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   
-
+   const temp = useContext(CalenderContext);
+   console.log(temp);
    const moveWeek = (weeks) => {
     const newDate = new Date(currentDate);
     newDate.setDate(newDate.getDate() + weeks * 7);

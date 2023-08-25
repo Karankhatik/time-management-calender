@@ -1,11 +1,20 @@
 import React from 'react'
 import { useState } from "react";
+import { CalenderContext } from '../context/CalenderContext';
+import { useContext } from 'react';
 
 const TimeZone = () => {
+
+const { utcTime, setUtcTime } = useContext(CalenderContext);
     
     const [selectedTimezone, setSelectedTimezone] = useState("UTC-0");
     const handleTimezoneChange = (e) => {
         setSelectedTimezone(e.target.value);
+        if(e.target.value === "UTC-0"){
+          setUtcTime(0)
+        }else{
+          setUtcTime(5)
+        }
       };
   return (
     <div className="bg-white rounded-xl shadow-md border m-5 ">
